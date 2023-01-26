@@ -42,7 +42,7 @@ const Home: NextPage<{ characters: Character[], information: Info[]}> = ({ chara
   )
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getServerSideProps: GetStaticProps = async (context) => {
   const res1 = await fetch("https://rickandmortyapi.com/api/character/?page=3")
 
 
