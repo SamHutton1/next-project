@@ -1,6 +1,5 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import Layout from "../../../next-project/.next/components/Layout";
 import { ReactElement, ReactNode } from "react";
 import { NextPage } from "next";
 import 'bootstrap/dist/css/bootstrap.css'
