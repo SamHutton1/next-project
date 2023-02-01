@@ -48,7 +48,7 @@ function PageList({ characters }: { characters: Character[] }) {
 export const getServerSideProps: GetServerSideProps = async(context) => {
 
     console.log(context.query)
-  const res = await fetch(`https://rickandmortyapi.com/api/character/?page=${1}`)
+  const res = await fetch(`https://rickandmortyapi.com/api/character/?page=${context.query.pageNum}`)
 
   const { results }: GetCharacterResults = await res.json();
 
