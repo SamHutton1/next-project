@@ -5,6 +5,7 @@ import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import Layout from "../../components/Layout";
 import { ReactNode } from "react";
+import Link from "next/link";
 
 
 function CharacterPage({ character }: { character: Character }) {

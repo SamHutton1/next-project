@@ -2,16 +2,14 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
-import {  NextPage, GetServerSideProps } from 'next'
+import { GetServerSideProps } from 'next'
 import { GetCharacterResults, Character, Info } from 'types'
 import imageLoader from 'imageLoader'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 
 const inter = Inter({ subsets: ['latin'] })
 
 function PageList({ characters }: { characters: Character[] }) {
-    const router = useRouter()
 
   return (
     <div className={styles.main}>
@@ -50,7 +48,9 @@ export const getServerSideProps: GetServerSideProps = async(context) => {
     console.log(context.query)
   const res = await fetch(`https://rickandmortyapi.com/api/character/?page=${1}`)
 
-  const { results }: GetCharacterResults = await res.json();
+  const { results, info }: GetCharacterResults = await res.json();
+
+  console.log(info)
 
   return {
     props: {

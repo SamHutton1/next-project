@@ -1,7 +1,5 @@
 export interface GetCharacterResults {
     info: Info;
-    results1: Character[];
-
     results: Character[];
   }
   
