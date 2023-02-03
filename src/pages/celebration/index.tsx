@@ -13,7 +13,7 @@ function ConfettiPage() {
     useEffect(() => {
         setWidth(window.innerWidth)
         setHeight(window.innerHeight)
-    })
+    }), []
 
 
     return (
