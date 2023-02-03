@@ -5,7 +5,7 @@ import styles from '../../styles/Confetti.module.css'
 import HeadElement from '@/components/HeadElement'
 
 
-function confetti() {
+function ConfettiPage() {
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
     const [pressed, setPressed] = useState(false);
@@ -33,4 +33,4 @@ function confetti() {
     )
 }
 
-export default confetti;
+export default ConfettiPage;
