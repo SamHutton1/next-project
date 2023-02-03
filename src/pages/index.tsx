@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
-import styles from '@/styles/Home.module.css'
+import styles from '../styles/HomePage.module.css'
 import { GetServerSideProps } from 'next'
 import { GetCharacterResults, Character, Info } from 'types'
 import imageLoader from 'imageLoader'
@@ -10,49 +10,30 @@ import HeadElement from '@/components/HeadElement'
 
 const inter = Inter({ subsets: ['latin'] })
 
-function PageList({ characters }: { characters: Character[] }) {
+function HomePage() {
 
   return (
     <div className={styles.main}>
-      <HeadElement/>
-      <div className='row'>
-        {characters.map((character) => {
-          return <div className='col' key={character.id}>
-            <Link href={`/characters/${character.id}`}>
-              <h3>{character.name}</h3>
+      <div className={styles.titleDiv}>
+        <h1 className={styles.title}>Welcome!</h1>
+      </div>
 
-            </Link>
-            <Image
-              loader={imageLoader}
-              unoptimized
-              src={character.image}
-              alt={character.name}
-              width="200"
-              height="200">
 
-            </Image>
-          </div>
-        })}
+      <div className={''}>
+        <HeadElement />
+
+        <button className={`btn btn-primary ${styles.confettiButton}`}>
+          <a className={styles.pageLinks} href = {'/pages/1'}>Go to Rick and Morty API</a>
+          
+        </button>
+        <button className={`btn btn-primary ${styles.confettiButton}`}>
+        <a className={styles.pageLinks} href= {'/celebration'}>Confetti!!!</a>
+        </button>
 
       </div>
     </div>
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async(context) => {
 
-    console.log(context.query)
-  const res = await fetch(`https://rickandmortyapi.com/api/character/?page=${1}`)
-
-  const { results, info }: GetCharacterResults = await res.json();
-
-  console.log(info)
-
-  return {
-    props: {
-      characters: results,
-    }
-  }
-}
-
-export default PageList;
+export default HomePage;

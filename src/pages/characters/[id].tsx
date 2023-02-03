@@ -12,7 +12,6 @@ import HeadElement from "../../components/HeadElement";
 function CharacterPage({ character }: { character: Character }) {
   const router = useRouter()
 
-  console.log(router.query)
   return (
     <div>
       <HeadElement/>
@@ -41,7 +40,6 @@ function CharacterPage({ character }: { character: Character }) {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
 
-  console.log(context.query)
 
   const res = await fetch(
     `https://rickandmortyapi.com/api/character/${context.query.id}`

@@ -105,7 +105,6 @@ const handlePrevious = (currentPage: number, minPage: number) => {
 }
 
 const renderCard = (character: Character) => {
-    console.log(character.origin)
     return (
         <div className="card" style={{ width: "15rem" }}>
             <div>
@@ -125,7 +124,6 @@ const renderCard = (character: Character) => {
 
 const getEpisode = (episodeUrl: string): string => {
     const getNumberEndOfStringRegex: RegExp = new RegExp('\\d+$');
-    console.log(getNumberEndOfStringRegex)
 
     let firstEpisode = episodeUrl.match(getNumberEndOfStringRegex);
 
