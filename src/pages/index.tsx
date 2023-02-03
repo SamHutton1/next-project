@@ -6,6 +6,7 @@ import { GetServerSideProps } from 'next'
 import { GetCharacterResults, Character, Info } from 'types'
 import imageLoader from 'imageLoader'
 import Link from 'next/link'
+import HeadElement from '@/components/HeadElement'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,12 +14,7 @@ function PageList({ characters }: { characters: Character[] }) {
 
   return (
     <div className={styles.main}>
-      <Head>
-        <title>Sam Hutton</title>
-        <meta name="description" content="A website for really cool people" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <HeadElement/>
       <div className='row'>
         {characters.map((character) => {
           return <div className='col' key={character.id}>

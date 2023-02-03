@@ -3,9 +3,10 @@ import Image from "next/image";
 import imageLoader from "imageLoader";
 import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
-import Layout from "../../components/Layout";
+import Layout from "../../components/HeadElement";
 import { ReactNode } from "react";
 import Link from "next/link";
+import HeadElement from "../../components/HeadElement";
 
 
 function CharacterPage({ character }: { character: Character }) {
@@ -14,6 +15,7 @@ function CharacterPage({ character }: { character: Character }) {
   console.log(router.query)
   return (
     <div>
+      <HeadElement/>
       <h1>{character.name}</h1>
 
       <p>Date Created: {character.created.toString().substring(0, 10)}</p>
@@ -36,9 +38,6 @@ function CharacterPage({ character }: { character: Character }) {
   );
 }
 
-CharacterPage.getLayout = function getLayout(page: ReactNode) {
-  return <Layout>{page}</Layout>
-}
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
 
